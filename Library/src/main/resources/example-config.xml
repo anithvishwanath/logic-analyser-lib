@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration xmlns="http://arp-web-analyser.net"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://arp-web-analyser.net configuration.xsd">
+	
+	<rule>
+		<id>placement.block-inside-inline</id>
+		<severity>error</severity>
+		<description>
+			Block element such as &lt;p&gt; or &lt;div&gt; 
+			cannot be placed inside inline element such
+			as &lt;span&gt;
+		</description>
+		<url>https://www.tipsandtricks-hq.com/10-common-html-mistakes-to-avoid-1980</url>
+		<suggestion>
+			Re-order the tags so that inline elements are 
+			within the block elements. If the outer inline
+			element was being used to apply styling or
+			to group elements, consider switching to
+			a block element. For example moving from
+			&lt;span&gt; to &lt;div&gt;
+		</suggestion>
+	</rule>
+</configuration>

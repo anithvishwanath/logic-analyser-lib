@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://arp-web-analyser.net"
+	xmlns:tns="http://arp-web-analyser.net" elementFormDefault="qualified">
+
+	<element name="configuration">
+		<complexType>
+			<sequence>
+				<element name="rule" type="tns:rule" maxOccurs="unbounded"
+					minOccurs="0"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="rule">
+		<choice maxOccurs="unbounded">
+			<element name="id" type="tns:string-no-ws"></element>
+			<element name="severity" type="tns:severityRating" minOccurs="1"
+				maxOccurs="1"></element>
+			<element name="description" maxOccurs="1" minOccurs="1"
+				type="tns:string-no-ws">
+			</element>
+			<element name="url" type="anyURI" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="suggestion" type="tns:string-no-ws"
+				maxOccurs="1" minOccurs="0">
+			</element>
+		</choice>
+	</complexType>
+
+	<simpleType name="severityRating">
+		<restriction base="string">
+			<enumeration value="info" />
+			<enumeration value="warning" />
+			<enumeration value="error" />
+			<enumeration value="critical" />
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="string-no-ws">
+		<restriction base="string">
+			<whiteSpace value="collapse"/>
+		</restriction>
+	</simpleType>
+</schema>
